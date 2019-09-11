@@ -1,7 +1,9 @@
 <ul class="list-group">
-    <app-post-list-item-component title="Mon premier post" content="Angular est géré par Google — il y a donc peu de chances qu’il disparaisse, et l’équipe de développement du framework est excellente."></app-post-list-item-component>
-    <app-post-list-item-component title="Mon deuxieme" content="Le TypeScript — ce langage permet un développement beaucoup plus stable, rapide et facile."></app-post-list-item-component>
-    <app-post-list-item-component  title="Encore un" content="Le framework Ionic — le framework permettant le développement d’applications mobiles multi-plateformes à partir d’une seule base de code — utilise Angular."></app-post-list-item-component>
+
+
+    <app-post-list-item-component *ngFor="let post of posts ;let i = index"
+    [title]="post.titre"
+    [content]="post.contenu"  [index]="i"></app-post-list-item-component>
       
       
-      </ul>
+</ul>

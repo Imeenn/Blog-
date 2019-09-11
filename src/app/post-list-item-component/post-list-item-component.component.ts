@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PostService } from '../services/post.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-post-list-item-component',
   templateUrl: './post-list-item-component.component.html',
@@ -9,10 +12,15 @@ export class PostListItemComponentComponent implements OnInit {
  
   @Input() title: string;
   @Input() content: string;
+  @Input() index: number;
+
+
+  
   loveIts: number=0;
   bool:Boolean;
   date=new Date();
-  constructor() { }
+  constructor(private servicepost:PostService,private router: Router) {
+  }
 
   ngOnInit() {
   }
@@ -30,6 +38,11 @@ export class PostListItemComponentComponent implements OnInit {
     this.bool=false;
   
   }
+//ajout a firebase
+  this.servicepost.enregistrerNblove(this.loveIts);
+  this.servicepost.nblove=this.loveIts;
+
+
 }
 dontLoveit()
 {
@@ -45,6 +58,14 @@ dontLoveit()
     this.bool=false;
   
   }
+this.servicepost.nblove=this.loveIts;
+}
+deletePost()
+{
+this.servicepost.posts.splice(this.index,1);
+  console.log("index"+this.index);
+  this.router.navigate(['/posts']);
+
 }
 
 }

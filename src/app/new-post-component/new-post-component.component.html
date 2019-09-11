@@ -1,0 +1,14 @@
+<form >
+  <div class="form-group">
+    <h2>Nouveau Post</h2>
+    <label >Titre</label>
+    <input type="text" class="form-control" style="width:500px" name="title " aria-describedby="emailHelp" placeholder="titre" [(ngModel)]="title">
+  </div>
+  <div class="form-group">
+    <label >contenu</label>
+    <textarea  class="form-control" style="width:500px" name="content" placeholder="contenu" [(ngModel)]="content"></textarea>
+  </div>
+  <div class="form-group">
+  <button type="submit" class="btn btn-primary" (click)=" addPost()">Envoyer</button>
+</div>
+</form>
